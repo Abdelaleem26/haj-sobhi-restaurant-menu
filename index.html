@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مطعم الحاج صبحي | أكل مصري بلدي</title>
+<meta name="description" content="مطعم الحاج صبحي: كشري وفول وطعمية وملوخية ومشويات بلدي في وسط البلد، القاهرة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- المتغيرات ---------- */
+:root{
+  --green:#12261F;      /* خلفية رئيسية */
+  --green-2:#1B352B;    /* خلفية أفتح شوية للأقسام */
+  --paper:#F4EEDD;      /* لون النص والورق */
+  --gold:#E3A72F;       /* لون التمييز */
+  --muted:#B9B7A5;
+  --line:rgba(244,238,221,.18);
+  --head:"Reem Kufi","Almarai",sans-serif;
+  --body:"Almarai","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--green);color:var(--paper);line-height:1.8;font-size:17px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:22px}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.25}
+
+/* ---------- الهيدر ---------- */
+header{position:sticky;top:0;z-index:20;background:var(--green);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:14px}
+.logo{font-family:var(--head);font-size:24px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+.logo small{font-family:var(--body);font-size:12px;color:var(--gold);letter-spacing:.08em}
+.links{display:none;gap:26px;font-weight:700;font-size:15px}
+.links a:hover{color:var(--gold)}
+.lang{border:1px solid var(--line);background:none;padding:6px 16px;border-radius:2px;font-weight:700;font-size:14px}
+@media(min-width:800px){.links{display:flex}}
+
+/* ---------- الهيرو ---------- */
+.hero{display:grid;min-height:560px}
+.hero .txt{padding:56px 22px;display:flex;flex-direction:column;justify-content:center;max-width:620px;margin-inline:auto}
+.eyebrow{color:var(--gold);font-weight:700;font-size:14px;letter-spacing:.06em;margin-bottom:12px}
+.hero h1{font-size:clamp(40px,8vw,68px);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--muted);max-width:44ch;margin-bottom:28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 28px;border:2px solid var(--gold);background:var(--gold);color:var(--green);font-weight:800;border-radius:2px;font-size:16px}
+.btn.o{background:none;color:var(--paper);border-color:var(--paper)}
+.btn:hover{opacity:.9}
+.hero .pic{min-height:300px;background:url(images/hero.jpg) center/cover}
+@media(min-width:900px){
+  .hero{grid-template-columns:1fr 1fr}
+  .hero .txt{padding-inline:40px;margin:0 0 0 auto;max-width:none}
+  [dir=rtl] .hero .txt{margin:0 auto 0 0}
+}
+.strip{background:var(--gold);color:var(--green);font-weight:800;text-align:center;padding:10px 16px;font-size:15px}
+
+/* ---------- الأكتر طلبًا ---------- */
+section{padding:72px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(30px,5vw,44px)}
+.sec-head p{color:var(--muted);max-width:38ch}
+.fav{display:grid;gap:18px}
+.fav figure{position:relative;overflow:hidden;border-radius:2px;min-height:260px}
+.fav img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.fav figcaption{position:absolute;inset-inline:0;bottom:0;background:rgba(18,38,31,.88);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fav figcaption b{font-family:var(--head);font-size:20px;font-weight:600}
+.fav figcaption span{color:var(--gold);font-weight:800;white-space:nowrap}
+@media(min-width:800px){
+  .fav{grid-template-columns:1.4fr 1fr;grid-template-rows:280px 280px}
+  .fav figure:first-child{grid-row:span 2}
+}
+
+/* ---------- المنيو ---------- */
+.menu{background:var(--green-2)}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:28px;padding-bottom:6px}
+.tab{flex:none;background:none;border:1px solid var(--line);padding:8px 22px;border-radius:2px;font-weight:700}
+.tab[aria-selected=true]{background:var(--paper);color:var(--green);border-color:var(--paper)}
+.items{display:grid;gap:0 56px}
+@media(min-width:900px){.items{grid-template-columns:1fr 1fr}}
+.item{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.item img{width:88px;height:88px;object-fit:cover;border-radius:2px}
+.item .ph{width:88px;height:0}
+.item.noimg{grid-template-columns:1fr}
+.row{display:flex;align-items:baseline;gap:10px}
+.row h3{font-size:19px;white-space:nowrap}
+.dots{flex:1;border-bottom:2px dotted rgba(244,238,221,.3);transform:translateY(-4px);min-width:20px}
+.price{color:var(--gold);font-weight:800;white-space:nowrap}
+.item p{color:var(--muted);font-size:15px;line-height:1.6;margin-top:4px}
+.note{margin-top:26px;color:var(--muted);font-size:14px}
+
+/* ---------- حكايتنا ---------- */
+.story{display:grid;gap:34px;align-items:center}
+.story img{border-radius:2px;width:100%;max-height:420px;object-fit:cover}
+.story h2{font-size:clamp(30px,5vw,44px);margin-bottom:16px}
+.story p{color:var(--muted);margin-bottom:14px;max-width:52ch}
+.nums{display:flex;gap:34px;margin-top:22px}
+.nums b{display:block;font-family:var(--head);font-size:34px;color:var(--gold)}
+.nums span{font-size:14px;color:var(--muted)}
+@media(min-width:900px){.story{grid-template-columns:1fr 1fr;gap:64px}}
+
+/* ---------- المواعيد والعنوان ---------- */
+.visit{background:var(--paper);color:var(--green)}
+.visit .sec-head p{color:#4a5a50}
+.cols{display:grid;gap:36px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:11px 0;border-bottom:1px solid rgba(18,38,31,.2);font-weight:700}
+.hours td:last-child{text-align:end;font-weight:400}
+.visit h3{font-size:24px;margin-bottom:10px}
+.visit p{margin-bottom:8px}
+.visit .btn{margin-top:16px;background:var(--green);border-color:var(--green);color:var(--paper)}
+.map{margin-top:18px;height:150px;border:2px solid var(--green);display:grid;place-items:center;font-weight:700;background:repeating-linear-gradient(45deg,#e9e2cc,#e9e2cc 10px,#f1ecd9 10px,#f1ecd9 20px)}
+
+footer{padding:34px 0;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.ph-note{font-size:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<script>
+/* =====================================================================
+   المحتوى: كل النصوص والأسعار هنا. عدّل المصفوفات بس وماتلمسش الباقي.
+   ar = عربي | en = إنجليزي
+   ===================================================================== */
+
+// بيانات المطعم (عدّلها بالحقيقية)
+const INFO = {
+  phone: "0100 000 0000",          // PLACEHOLDER: رقم الحجز
+  address: { ar: "١٨ شارع شامبليون، وسط البلد، القاهرة", en: "18 Champollion St, Downtown Cairo" },
+  hours: [
+    { day: { ar: "السبت - الأربعاء", en: "Sat - Wed" }, time: { ar: "١٢ ظهرًا - ١٢ بعد منتصف الليل", en: "12 PM - 12 AM" } },
+    { day: { ar: "الخميس والجمعة",   en: "Thu & Fri"  }, time: { ar: "١١ صباحًا - ٢ بعد منتصف الليل", en: "11 AM - 2 AM" } }
+  ]
+};
+
+// الأقسام
+const CATS = [
+  { id: "breakfast", ar: "فطار", en: "Breakfast" },
+  { id: "mains",     ar: "أطباق رئيسية", en: "Mains" },
+  { id: "grill",     ar: "مشويات", en: "Grill" },
+  { id: "sweets",    ar: "حلويات ومشروبات", en: "Sweets & drinks" }
+];
+
+// المنيو - الأسعار بالجنيه المصري. img: اسم الصورة داخل فولدر images (أو null)
+const MENU = [
+  { cat:"breakfast", img:"ful.jpg",      price:35,  ar:["فول مدمس","مدمس بالزيت الحار والليمون، وعيش بلدي سخن."], en:["Ful medames","Slow-cooked fava with chili oil and lemon, served with warm baladi bread."] },
+  { cat:"breakfast", img:"taameya.jpg",  price:30,  ar:["طعمية بالسمسم","خمس قطع محمّرة لحظة الطلب مع سلطة وطحينة."], en:["Ta'ameya","Five fresh-fried pieces with salad and tahini."] },
+  { cat:"breakfast", img:null,           price:45,  ar:["باذنجان مقلي","شرائح باذنجان مقرمشة بصوص الدقة."], en:["Fried aubergine","Crispy slices with dukkah dressing."] },
+  { cat:"breakfast", img:null,           price:40,  ar:["فول بالطحينة","فول مهروس بالطحينة والبقدونس."], en:["Ful with tahini","Mashed fava with tahini and parsley."] },
+  { cat:"mains",     img:"koshari.jpg",  price:55,  ar:["كشري وسط","رز ومكرونة وعدس وحمص، بالدقة والشطة وصلصة الطماطم والتقلية."], en:["Koshari (medium)","Rice, pasta, lentils and chickpeas with spicy sauce, tomato sauce and crispy onions."] },
+  { cat:"mains",     img:"molokhia.jpg", price:120, ar:["ملوخية بالفراخ","ملوخية خضرا بالتقلية، مع ربع فرخة ورز بالشعرية."], en:["Molokhia with chicken","Garlicky green molokhia with a quarter chicken and vermicelli rice."] },
+  { cat:"mains",     img:"mahshi.jpg",   price:180, ar:["محشي ورق عنب","نص كيلو ملفوف يدوي بالرز والأعشاب."], en:["Stuffed vine leaves","Half a kilo, hand-rolled with rice and herbs."] },
+  { cat:"mains",     img:null,           price:95,  ar:["مسقعة بالباذنجان","في طاجن فخار مع عيش."], en:["Moussaka","Baked in a clay pot, served with bread."] },
+  { cat:"grill",     img:"chicken.jpg",  price:110, ar:["فرخة مشوية (ربع)","متبّلة ومشوية على الفحم، مع رز أصفر وسلطة."], en:["Grilled chicken (quarter)","Charcoal-grilled, with yellow rice and salad."] },
+  { cat:"grill",     img:"grill.jpg",    price:240, ar:["مشاوي مشكّلة","كفتة وكباب وشيش طاووق، تكفي شخصين."], en:["Mixed grill","Kofta, kebab and shish tawook. Serves two."] },
+  { cat:"grill",     img:null,           price:85,  ar:["كفتة (٤ أسياخ)","كفتة بلدي مع طحينة وعيش."], en:["Kofta (4 skewers)","Local-style kofta with tahini and bread."] },
+  { cat:"sweets",    img:"omali.jpg",    price:65,  ar:["أم علي","في الفرن بالمكسرات واللبن، بتتقدم سخنة."], en:["Om Ali","Oven-baked with nuts and milk, served hot."] },
+  { cat:"sweets",    img:null,           price:35,  ar:["رز بلبن","بالقرفة والمكسرات."], en:["Rice pudding","With cinnamon and nuts."] },
+  { cat:"sweets",    img:null,           price:15,  ar:["شاي بالنعناع","كوباية كبيرة."], en:["Mint tea","A large glass."] },
+  { cat:"sweets",    img:null,           price:25,  ar:["كركديه","ساقع أو سخن."], en:["Hibiscus (karkade)","Iced or hot."] }
+];
+
+// الأكتر طلبًا (بتظهر فوق المنيو بصور كبيرة)
+const FAVS = [
+  { img:"koshari.jpg",  price:55,  ar:"كشري الحاج صبحي", en:"Haj Sobhi Koshari" },
+  { img:"molokhia.jpg", price:120, ar:"ملوخية بالفراخ",   en:"Molokhia with chicken" },
+  { img:"grill.jpg",    price:240, ar:"مشاوي مشكّلة",     en:"Mixed grill" }
+];
+
+// النصوص الثابتة
+const T = {
+  ar: {
+    nav:["المنيو","حكايتنا","مواعيدنا"], lang:"English",
+    eyebrow:"أكل مصري من ١٩٩٨",
+    h1:"أكل بيتنا.. <em>على سفرتكم</em>",
+    hero:"كشري بالدقة الحارّة، وفول على أصوله، وملوخية بتتعمل كل يوم الصبح. قاعدين في وسط البلد من أكتر من ٢٥ سنة.",
+    cta1:"شوف المنيو", cta2:"احجز طاولة",
+    strip:"توصيل لحد باب البيت في وسط البلد والزمالك وجاردن سيتي",
+    favT:"اللي مفيش زيّه", favP:"أكتر ٣ أطباق بيرجّعوا الناس تاني.",
+    menuT:"المنيو", menuP:"الأسعار بالجنيه المصري.", egp:"ج.م",
+    note:"الأسعار شاملة الضريبة. لو عندك حساسية من أي مكوّن قول للجرسون قبل الطلب.",
+    storyT:"من مطبخ الحاج صبحي",
+    s1:"الحاج صبحي فتح أول محل في الشارع ده سنة ١٩٩٨ بعربية كشري وتلات كراسي. النهارده المكان اتوسّع، بس الوصفة هي هي.",
+    s2:"الفول بيتسوّى ٨ ساعات على نار هادية، والعيش بنجيبه سخن من الفرن اللي في أول الشارع، والتقلية بتتعمل على الطلب.",
+    n:[["١٩٩٨","سنة الافتتاح"],["٨ ساعات","تسوية الفول"],["٣٠٠+","طبق كشري يوميًا"]],
+    visitT:"مواعيدنا وعنواننا", visitP:"افتح كل يوم، حتى في الأعياد.",
+    addr:"العنوان", call:"للحجز والاستفسار", mapT:"الخريطة هنا", callBtn:"اتصل بينا",
+    foot:"© ٢٠٢٦ مطعم الحاج صبحي. كل الحقوق محفوظة.",
+    photos:"الصور من Wikimedia Commons وPexels، التفاصيل في README."
+  },
+  en: {
+    nav:["Menu","Our story","Hours"], lang:"عربي",
+    eyebrow:"Egyptian food since 1998",
+    h1:"Home cooking, <em>served to you</em>",
+    hero:"Koshari with real chili sauce, ful the proper way, and molokhia made fresh every morning. Downtown for over 25 years.",
+    cta1:"See the menu", cta2:"Book a table",
+    strip:"Delivery to Downtown, Zamalek and Garden City",
+    favT:"The ones people come back for", favP:"Our three most-ordered dishes.",
+    menuT:"Menu", menuP:"Prices in Egyptian pounds.", egp:"EGP",
+    note:"Prices include tax. Tell your waiter about any allergies before ordering.",
+    storyT:"From Haj Sobhi's kitchen",
+    s1:"Haj Sobhi opened the first stall on this street in 1998 with a koshari cart and three chairs. The place has grown, the recipe hasn't.",
+    s2:"Our ful cooks for 8 hours on a low flame, the bread comes hot from the oven at the end of the street, and the fried onions are made to order.",
+    n:[["1998","Opened"],["8 hours","Ful cooking time"],["300+","Koshari bowls a day"]],
+    visitT:"Hours and address", visitP:"Open every day, holidays included.",
+    addr:"Address", call:"Reservations and questions", mapT:"Map goes here", callBtn:"Call us",
+    foot:"© 2026 Haj Sobhi Restaurant. All rights reserved.",
+    photos:"Photos from Wikimedia Commons and Pexels, see the README."
+  }
+};
+</script>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top">الحاج صبحي <small>HAJ SOBHI</small></a>
+  <nav class="links" aria-label="Main"><a href="#menu" data-t="nav0"></a><a href="#story" data-t="nav1"></a><a href="#visit" data-t="nav2"></a></nav>
+  <button class="lang" id="lang" type="button"></button>
+</div></header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="txt">
+      <p class="eyebrow" data-t="eyebrow"></p>
+      <h1 data-t="h1" data-html></h1>
+      <p data-t="hero"></p>
+      <div class="btns"><a class="btn" href="#menu" data-t="cta1"></a><a class="btn o" href="#visit" data-t="cta2"></a></div>
+    </div>
+    <div class="pic" role="img" aria-label="كشري"></div>
+  </section>
+  <div class="strip" data-t="strip"></div>
+
+  <section id="favs"><div class="wrap">
+    <div class="sec-head"><h2 data-t="favT"></h2><p data-t="favP"></p></div>
+    <div class="fav" id="fav"></div>
+  </div></section>
+
+  <section class="menu" id="menu"><div class="wrap">
+    <div class="sec-head"><h2 data-t="menuT"></h2><p data-t="menuP"></p></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="items" id="items"></div>
+    <p class="note" data-t="note"></p>
+  </div></section>
+
+  <section id="story"><div class="wrap story">
+    <img src="images/bread.jpg" alt="" loading="lazy">
+    <div>
+      <h2 data-t="storyT"></h2>
+      <p data-t="s1"></p><p data-t="s2"></p>
+      <div class="nums" id="nums"></div>
+    </div>
+  </div></section>
+
+  <section class="visit" id="visit"><div class="wrap">
+    <div class="sec-head"><h2 data-t="visitT"></h2><p data-t="visitP"></p></div>
+    <div class="cols">
+      <table class="hours" id="hours"></table>
+      <div>
+        <h3 data-t="addr"></h3><p id="addr"></p>
+        <h3 style="margin-top:20px" data-t="call"></h3><p dir="ltr" style="text-align:start" id="phone"></p>
+        <a class="btn" id="callBtn" href="#visit" data-t="callBtn"></a>
+        <div class="map" data-t="mapT"></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><span data-t="foot"></span><span class="ph-note" data-t="photos"></span></div></footer>
+
+<script>
+/* =====================================================================
+   العرض (render) | في Laravel: كل دالة render بتتحول لـ Blade component
+   ===================================================================== */
+let lang = "ar", cat = "breakfast";
+const $ = s => document.querySelector(s);
+const nf = n => new Intl.NumberFormat(lang === "ar" ? "ar-EG" : "en-US").format(n);
+
+function renderStatic(){
+  const t = T[lang];
+  document.querySelectorAll("[data-t]").forEach(e=>{
+    const k = e.dataset.t, v = k.startsWith("nav") ? t.nav[+k.slice(3)] : t[k];
+    e.hasAttribute("data-html") ? e.innerHTML = v : e.textContent = v;
+  });
+  $("#lang").textContent = t.lang;
+  $("#nums").innerHTML = t.n.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
+  $("#hours").innerHTML = INFO.hours.map(h=>`<tr><td>${h.day[lang]}</td><td>${h.time[lang]}</td></tr>`).join("");
+  $("#addr").textContent = INFO.address[lang];
+  $("#phone").textContent = INFO.phone;
+  $("#callBtn").href = "tel:" + INFO.phone.replace(/\s/g,"");
+}
+function renderFav(){
+  $("#fav").innerHTML = FAVS.map(f=>`<figure><img src="images/${f.img}" alt="${f[lang]}" loading="lazy"><figcaption><b>${f[lang]}</b><span>${nf(f.price)} ${T[lang].egp}</span></figcaption></figure>`).join("");
+}
+function renderMenu(){
+  $("#tabs").innerHTML = CATS.map(c=>`<button class="tab" role="tab" data-cat="${c.id}" aria-selected="${c.id===cat}">${c[lang]}</button>`).join("");
+  $("#items").innerHTML = MENU.filter(m=>m.cat===cat).map(m=>`
+    <article class="item ${m.img?"":"noimg"}">
+      ${m.img?`<img src="images/${m.img}" alt="" loading="lazy">`:""}
+      <div><div class="row"><h3>${m[lang][0]}</h3><span class="dots"></span><span class="price">${nf(m.price)} ${T[lang].egp}</span></div><p>${m[lang][1]}</p></div>
+    </article>`).join("");
+}
+function setLang(l){
+  lang = l; document.documentElement.lang = l; document.documentElement.dir = l==="ar"?"rtl":"ltr";
+  renderStatic(); renderFav(); renderMenu();
+}
+document.addEventListener("click", e=>{
+  const c = e.target.closest("[data-cat]"); if(c){ cat = c.dataset.cat; renderMenu(); }
+  if(e.target.closest("#lang")) setLang(lang==="ar"?"en":"ar");
+});
+setLang("ar");
+</script>
+</body>
+</html>
